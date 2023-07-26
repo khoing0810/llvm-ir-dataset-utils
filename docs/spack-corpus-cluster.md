@@ -213,3 +213,8 @@ This should print out some warnings and give you the aggregate size in bytes.
 
 TODO(boomanaiden154): Validate that these build instructions are correct at some
 point.
+
+TODO(boomanaiden154): Add information on the spack config at some point,
+specifically on setting up the compiler config and specifying the locations of
+certain key directories to prevent the home directory from being touched.
+
