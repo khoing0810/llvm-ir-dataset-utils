@@ -7,4 +7,5 @@
 #   <path to output corpus> \
 #   <address/hostname of head node>
 set -e
-singularity run --bind $1:/corpus ~/llvm-ir-dataset-utils.sif ./in-container-setup-headless.sh $2
+script_path=$(dirname "$0")
+singularity run --bind $1:/corpus ~/llvm-ir-dataset-utils.sif $script_path/in-container-setup-headless.sh $2
