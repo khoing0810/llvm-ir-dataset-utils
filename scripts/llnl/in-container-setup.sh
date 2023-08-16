@@ -5,6 +5,7 @@ rm -rf /tmp/spack
 rm -rf /tmp/build
 rm -rf /tmp/rustup
 rm -rf /tmp/cargo
+rm -rf /tmp/llvm-tokenizer
 export CARGO_HOME=/tmp/cargo
 export RUSTUP_HOME=/tmp/rustup
 rustup default nightly
@@ -27,4 +28,11 @@ source ./spack/share/spack/setup-env.sh
 export PATH=/tmp/spack/bin:$PATH
 spack bootstrap root /tmp/bootstrap-root
 spack bootstrap now
+cd /tmp
+git clone https://github.com/llvm-ml/llvm-tokenizer
+mkdir llvm-tokenizer/build
+cd llvm-tokenizer/build
+cmake -GNinja -DCMAKE_BUILD_TYPE=Release ../
+ninja
+export PATH=$PATH:/tmp/llvm-tokenizer/build
 set +e
