@@ -6,6 +6,7 @@ rm -rf /tmp/build
 rm -rf /tmp/rustup
 rm -rf /tmp/cargo
 rm -rf /tmp/llvm-tokenizer
+rm -rf /tmp/llvm-ml-utils
 export CARGO_HOME=/tmp/cargo
 export RUSTUP_HOME=/tmp/rustup
 rustup default nightly
@@ -35,4 +36,12 @@ cd llvm-tokenizer/build
 cmake -GNinja -DCMAKE_BUILD_TYPE=Release ../
 ninja
 export PATH=$PATH:/tmp/llvm-tokenizer/build
+cd /tmp
+git clone https://github.com/llvm-ml/llvm-ml-utils
+mkdir llvm-ml-utils/build
+cd llvm-ml-utils/build
+cmake -GNinja -DCMAKE_BUILD_TYPE=Release ../
+ninja
+cd /tmp
+export PATH=$PATH:/tmp/llvm-ml-utils/build
 set +e
