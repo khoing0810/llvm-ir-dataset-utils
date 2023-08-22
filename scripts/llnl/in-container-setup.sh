@@ -44,4 +44,5 @@ cmake -GNinja -DCMAKE_BUILD_TYPE=Release ../
 ninja
 cd /tmp
 export PATH=$PATH:/tmp/llvm-ml-utils/build
+export REQUESTS_CA_BUNDLE=/usr/local/share/ca-certificates/tls-ca-bundle.crt
 set +e
