@@ -19,12 +19,7 @@ cd /tmp
 # once most of the patches have landed upstream.
 git clone https://github.com/llvm-ml/llvm-ir-dataset-utils
 export PYTHONPATH=$PYTHONPATH:/tmp/llvm-ir-dataset-utils:/tmp/spack/lib/spack/:/tmp/spack/lib/spack/external/_vendoring/:/tmp/spack/lib/spack/external/
-git clone https://github.com/spack/spack --depth=1
-cd spack
-git remote add fork https://github.com/boomanaiden154/spack
-git fetch fork
-git checkout running-fixes
-cd ..
+git clone -b running-fixes --depth=1 https://github.com/boomanaiden154/spack
 source ./spack/share/spack/setup-env.sh
 export PATH=/tmp/spack/bin:$PATH
 spack bootstrap root /tmp/bootstrap-root
