@@ -7,6 +7,7 @@ rm -rf /tmp/rustup
 rm -rf /tmp/cargo
 rm -rf /tmp/llvm-tokenizer
 rm -rf /tmp/llvm-ml-utils
+rm -rf /tmp/fastBPE
 export CARGO_HOME=/tmp/cargo
 export RUSTUP_HOME=/tmp/rustup
 rustup default nightly
@@ -40,4 +41,10 @@ ninja
 cd /tmp
 export PATH=$PATH:/tmp/llvm-ml-utils/build
 export REQUESTS_CA_BUNDLE=/usr/local/share/ca-certificates/tls-ca-bundle.crt
+# Install FastBPE
+git clone https://github.com/glample/fastBPE.git
+cd fastBPE
+clang++ -std=c++11 -pthread -O3 fastBPE/main.cc -IfastBPE -o fast
+export PATH=$PATH:/tmp/fastBPE
+cd /tmp
 set +e
