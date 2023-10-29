@@ -11,4 +11,4 @@
 # Or for slurm:
 # sbatch -N 1 ./scripts/llnl/container-setup.sh <path to corpus> <head node> <path to llvm-ir-dataset-utils (absolute path)>
 set -e
-singularity run --bind $1:/corpus ~/llvm-ir-dataset-utils.sif $3/scripts/llnl/in-container-setup-headless.sh $2 $3
+singularity run --bind $1:/corpus --bind /p/lustre2/aidengro/spack_corpus1/:/corpus2 ~/llvm-ir-dataset-utils.sif $3/scripts/llnl/in-container-setup-headless.sh $2 $3
